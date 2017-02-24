@@ -7,6 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'random_data'
 
+my_title = "What do you want?"
+my_body = "There is a huge discrepancy with regards about what people want in general. This is unknown and should always be taken with a grain of salt."
+
+Post.create_with(body: my_body).find_or_create_by!(title: my_title)
+
 # Create Posts
 50.times do
   # #1
@@ -27,6 +32,7 @@ posts = Post.all
       body: RandomData.random_paragraph
   )
 end
+
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
