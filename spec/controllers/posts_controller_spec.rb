@@ -75,7 +75,8 @@ RSpec.describe PostsController, type: :controller do
   describe "POST create" do
     # #4
     it "increases the number of Post by 1" do
-      expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Post,:count).by(1)
+      expect{post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to
+      change(Post,:count).by(1)
     end
 
     # #5
