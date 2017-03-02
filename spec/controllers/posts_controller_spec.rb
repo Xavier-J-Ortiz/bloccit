@@ -94,7 +94,6 @@ RSpec.describe PostsController, type: :controller do
 
       put :update, id: my_post.id, post: {title: new_title, body: new_body}
 
-      # #3
       updated_post = assigns(:post)
       expect(updated_post.id).to eq my_post.id
       expect(updated_post.title).to eq new_title
@@ -116,7 +115,6 @@ RSpec.describe PostsController, type: :controller do
   describe "DELETE destroy" do
     it "deletes the post" do
       delete :destroy, {id: my_post.id}
-      # #6
       count = Post.where({id: my_post.id}).size
       expect(count).to eq 0
     end
