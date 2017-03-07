@@ -40,7 +40,7 @@ end
   # #1
   SponsoredPost.create!(
       topic:  topics.sample,
-      title:  RandomData.random_sentence,
+      title:  "--SPONSORED POST--" + RandomData.random_sentence,
       body:   RandomData.random_paragraph,
       price: rand * 100
   )
