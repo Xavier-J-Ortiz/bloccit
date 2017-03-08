@@ -33,5 +33,7 @@ gem 'turbolinks', '~> 2.5.3'
 
 gem 'bootstrap-sass'
 
+gem 'bcrypt'
+
 
 
