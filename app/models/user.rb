@@ -1,5 +1,16 @@
 class User < ActiveRecord::Base
-  before_save { self.email = email.downcase if email.present? }
+  before_save  do
+    self.email = email.downcase if email.present?
+    if name.present?
+      split_name = name.split(' ')
+      answer = []
+      split_name.each do |word|
+        answer.push(word.capitalize)
+      end
+      self.name = answer.join(' ')
+    end
+  end
+
 
   # #3
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
