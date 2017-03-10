@@ -11,14 +11,6 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-    if @user.save
-      flash[:notice] = "Welcome to Bloccit #{@user.name}!"
-      redirect_to users_confirm_path
-    else
-      flash.now[:alert] = "There was an error creating your account. Please try again."
-      render :new
-    end
-
   end
 
   def create
