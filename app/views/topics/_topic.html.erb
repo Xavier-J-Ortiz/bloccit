@@ -1,0 +1,11 @@
+<div class="media">
+  <div class="media-body">
+    <small>
+      created <%= time_ago_in_words(topic.created_at) %> ago
+      <% if user_is_authorized_for_topics? %>
+          | <%= link_to "Delete", [@topic, topic], method: :delete %>
+      <% end %>
+      <p><%= topic.description %></p>
+    </small>
+  </div>
+</div>
