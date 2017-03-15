@@ -1,0 +1,12 @@
+<div class="media">
+  <div class="media-body">
+    <small>
+      submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %>
+      <% if user_is_authorized_for_post?(post) %>
+          | <%= link_to "Delete", [@topic, post], method: :delete %>
+      <% end %>
+      <br><%= post.comments.count %> Comments
+      <br>
+    </small>
+  </div>
+</div>
