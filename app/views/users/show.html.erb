@@ -13,8 +13,8 @@
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
         <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <%= pluralize(@user.comments.count, 'comment') %>
+          <%= user_has_posts ? pluralize(@user.posts.count, 'post') : current_user.name + " has not submitted any posts yet." %>,
+          <%= user_has_comments ? pluralize(@user.comments.count, 'comment') : current_user.name + " has not submitted any posts yet." %>
         </small>
       </div>
     </div>
