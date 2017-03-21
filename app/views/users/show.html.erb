@@ -2,19 +2,17 @@
   <div class="col-md-8">
     <div class="media">
       <br />
-      // #12
       <% avatar_url = @user.avatar_url(128) %>
       <% if avatar_url %>
           <div class="media-left">
-            // #13
             <%= image_tag avatar_url, class: 'media-object' %>
           </div>
       <% end %>
       <div class="media-body">
         <h2 class="media-heading"><%= @user.name %></h2>
         <small>
-          <%= user_has_posts ? pluralize(@user.posts.count, 'post') : current_user.name + " has not submitted any posts yet." %>,
-          <%= user_has_comments ? pluralize(@user.comments.count, 'comment') : current_user.name + " has not submitted any posts yet." %>
+          <%= user_has_posts ? pluralize(@user.posts.count, 'post') : @user.name + " has not submitted any posts yet." %>,
+          <%= user_has_comments ? pluralize(@user.comments.count, 'comment') : @user.name + " has not submitted any posts yet." %>
         </small>
       </div>
     </div>
@@ -27,3 +25,7 @@
 
 <h2>Comments</h2>
 <%= render @user.comments %>
+
+<h2>Favorite Posts</h2>
+<%= render partial: 'user_favorite', locals: { posts: @user.posts, user: @user} %>
+
