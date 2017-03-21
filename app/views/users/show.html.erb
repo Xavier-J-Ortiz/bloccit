@@ -27,5 +27,5 @@
 <%= render @user.comments %>
 
 <h2>Favorite Posts</h2>
-<%= render partial: 'user_favorite', locals: { posts: @user.posts, user: @user} %>
+<%= render @user.favorited_posts %>
 
